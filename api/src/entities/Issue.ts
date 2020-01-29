@@ -44,10 +44,10 @@ class Issue extends BaseEntity {
   status: IssueStatus;
 
   @Column('varchar')
-  color: IssueColor;
-
-  @Column('varchar')
   priority: IssuePriority;
+
+  @Column('varchar', { default: 'green' })
+  color: IssueColor;
 
   @Column('double precision')
   listPosition: number;

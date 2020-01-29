@@ -1,6 +1,6 @@
 import { Comment, Issue, Project, User } from 'entities';
 import { ProjectCategory } from 'constants/projects';
-import { IssueType, IssueStatus, IssuePriority } from 'constants/issues';
+import { IssueType, IssueStatus, IssuePriority, IssueColor } from 'constants/issues';
 import { createEntity } from 'utils/typeorm';
 
 const seedUsers = (): Promise<User[]> => {
@@ -37,6 +37,7 @@ const seedIssues = (project: Project): Promise<Issue[]> => {
       type: IssueType.TASK,
       status: IssueStatus.BACKLOG,
       priority: IssuePriority.LOWEST,
+      color: IssueColor.GREEN,
       listPosition: 1,
       reporterId: users[0].id,
       project,
@@ -46,6 +47,7 @@ const seedIssues = (project: Project): Promise<Issue[]> => {
       type: IssueType.TASK,
       status: IssueStatus.BACKLOG,
       priority: IssuePriority.MEDIUM,
+      color: IssueColor.RED,
       listPosition: 2,
       estimate: 5,
       description: 'Issue description 2',
@@ -58,6 +60,7 @@ const seedIssues = (project: Project): Promise<Issue[]> => {
       type: IssueType.STORY,
       status: IssueStatus.SELECTED,
       priority: IssuePriority.HIGH,
+      color: IssueColor.YELLOW,
       listPosition: 3,
       estimate: 10,
       description: 'Issue description 3',
