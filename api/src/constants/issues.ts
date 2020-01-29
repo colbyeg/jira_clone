@@ -18,3 +18,10 @@ export enum IssuePriority {
   LOW = '2',
   LOWEST = '1',
 }
+
+export enum IssueColor {
+  RED = 'red',
+  GREEN = 'green',
+  YELLOW = 'yellow',
+  PURPLE = 'purple',
+}

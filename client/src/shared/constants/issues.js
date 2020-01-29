@@ -19,6 +19,13 @@ export const IssuePriority = {
   LOWEST: '1',
 };
 
+export const IssueColor = {
+  RED: 'red',
+  GREEN: 'green',
+  YELLOW: 'yellow',
+  PURPLE: 'purple',
+};
+
 export const IssueTypeCopy = {
   [IssueType.TASK]: 'Task',
   [IssueType.BUG]: 'Bug',
@@ -38,4 +45,11 @@ export const IssuePriorityCopy = {
   [IssuePriority.MEDIUM]: 'Medium',
   [IssuePriority.LOW]: 'Low',
   [IssuePriority.LOWEST]: 'Lowest',
+};
+
+export const IssueColorCopy = {
+  [IssueColor.RED]: 'Red',
+  [IssueColor.GREEN]: 'Green',
+  [IssueColor.YELLOW]: 'Yellow',
+  [IssueColor.PURPLE]: 'Purple',
 };

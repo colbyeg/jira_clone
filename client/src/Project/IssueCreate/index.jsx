@@ -5,13 +5,22 @@ import {
   IssueType,
   IssueStatus,
   IssuePriority,
+  IssueColor,
   IssueTypeCopy,
   IssuePriorityCopy,
+  IssueColorCopy,
 } from 'shared/constants/issues';
 import toast from 'shared/utils/toast';
 import useApi from 'shared/hooks/api';
 import useCurrentUser from 'shared/hooks/currentUser';
-import { Form, IssueTypeIcon, Icon, Avatar, IssuePriorityIcon } from 'shared/components';
+import {
+  Form,
+  IssueTypeIcon,
+  Icon,
+  Avatar,
+  IssuePriorityIcon,
+  IssueColorIcon,
+} from 'shared/components';
 
 import {
   FormHeading,
@@ -45,12 +54,14 @@ const ProjectIssueCreate = ({ project, fetchProject, onCreate, modalClose }) => 
         reporterId: currentUserId,
         userIds: [],
         priority: IssuePriority.MEDIUM,
+        color: IssueColor.GREEN,
       }}
       validations={{
         type: Form.is.required(),
         title: [Form.is.required(), Form.is.maxLength(200)],
         reporterId: Form.is.required(),
         priority: Form.is.required(),
+        color: Form.is.required(),
       }}
       onSubmit={async (values, form) => {
         try {
@@ -100,7 +111,7 @@ const ProjectIssueCreate = ({ project, fetchProject, onCreate, modalClose }) => 
           isMulti
           name="userIds"
           label="Assignees"
-          tio="People who are responsible for dealing with this issue."
+          tip="People who are responsible for dealing with this issue."
           options={userOptions(project)}
           renderOption={renderUser(project)}
           renderValue={renderUser(project)}
@@ -112,6 +123,14 @@ const ProjectIssueCreate = ({ project, fetchProject, onCreate, modalClose }) => 
           options={priorityOptions}
           renderOption={renderPriority}
           renderValue={renderPriority}
+        />
+        <Form.Field.Select
+          name="color"
+          label="Color"
+          tip="Color status of this issue."
+          options={colorOptions}
+          renderOption={renderColor}
+          renderValue={renderColor}
         />
         <Actions>
           <ActionButton type="submit" variant="primary" isWorking={isCreating}>
@@ -136,7 +155,19 @@ const priorityOptions = Object.values(IssuePriority).map(priority => ({
   label: IssuePriorityCopy[priority],
 }));
 
+const colorOptions = Object.values(IssueColor).map(color => ({
+  value: color,
+  label: IssueColorCopy[color],
+}));
+
 const userOptions = project => project.users.map(user => ({ value: user.id, label: user.name }));
+
+const renderColor = ({ value: color }) => (
+  <SelectItem>
+    <IssueColorIcon color={color} top={1} />
+    <SelectItemLabel>{IssueColorCopy[color]}</SelectItemLabel>
+  </SelectItem>
+);
 
 const renderType = ({ value: type }) => (
   <SelectItem>
