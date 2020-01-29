@@ -16,7 +16,7 @@ import {
 } from 'typeorm';
 
 import is from 'utils/validation';
-import { IssueType, IssueStatus, IssuePriority } from 'constants/issues';
+import { IssueType, IssueStatus, IssuePriority, IssueColor } from 'constants/issues';
 import { Comment, Project, User } from '.';
 
 @Entity()
@@ -26,6 +26,7 @@ class Issue extends BaseEntity {
     type: [is.required(), is.oneOf(Object.values(IssueType))],
     status: [is.required(), is.oneOf(Object.values(IssueStatus))],
     priority: [is.required(), is.oneOf(Object.values(IssuePriority))],
+    color: [is.required(), is.oneOf(Object.values(IssueColor))],
     listPosition: is.required(),
     reporterId: is.required(),
   };
@@ -41,6 +42,9 @@ class Issue extends BaseEntity {
 
   @Column('varchar')
   status: IssueStatus;
+
+  @Column('varchar')
+  color: IssueColor;
 
   @Column('varchar')
   priority: IssuePriority;

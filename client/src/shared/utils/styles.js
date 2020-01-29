@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import Color from 'color';
 
-import { IssueType, IssueStatus, IssuePriority } from 'shared/constants/issues';
+import { IssueType, IssueStatus, IssuePriority, IssueColor } from 'shared/constants/issues';
 
 export const color = {
   primary: '#0052cc', // Blue
@@ -40,6 +40,13 @@ export const issuePriorityColors = {
   [IssuePriority.MEDIUM]: '#E97F33', // orange
   [IssuePriority.LOW]: '#2D8738', // green
   [IssuePriority.LOWEST]: '#57A55A', // green
+};
+
+export const issueColorColors = {
+  [IssueColor.RED]: '#CD1317', // red
+  [IssueColor.GREEN]: '#2D8738', // green
+  [IssueColor.YELLOW]: '#ffc72c', // yellow
+  [IssueColor.PURPLE]: '#6d5d8a', // purple
 };
 
 export const issueStatusColors = {
