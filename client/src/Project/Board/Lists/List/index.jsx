@@ -7,6 +7,7 @@ import { intersection } from 'lodash';
 import { IssueStatusCopy } from 'shared/constants/issues';
 
 import Issue from './Issue';
+import ListDelete from './ListDelete';
 import { List, Title, IssuesCount, Issues } from './Styles';
 
 const propTypes = {
@@ -43,6 +44,7 @@ const ProjectBoardList = ({ status, project, filters, currentUserId }) => {
             ))}
             {provided.placeholder}
           </Issues>
+          <ListDelete />
         </List>
       )}
     </Droppable>

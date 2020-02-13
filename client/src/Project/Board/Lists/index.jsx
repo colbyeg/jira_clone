@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { DragDropContext } from 'react-beautiful-dnd';
 
@@ -9,6 +9,7 @@ import { IssueStatus } from 'shared/constants/issues';
 
 import List from './List';
 import { Lists } from './Styles';
+import ListAdd from './ListAdd';
 
 const propTypes = {
   project: PropTypes.object.isRequired,
@@ -35,19 +36,22 @@ const ProjectBoardLists = ({ project, filters, updateLocalProjectIssues }) => {
   };
 
   return (
-    <DragDropContext onDragEnd={handleIssueDrop}>
-      <Lists>
-        {Object.values(IssueStatus).map(status => (
-          <List
-            key={status}
-            status={status}
-            project={project}
-            filters={filters}
-            currentUserId={currentUserId}
-          />
-        ))}
-      </Lists>
-    </DragDropContext>
+    <Fragment>
+      <ListAdd />
+      <DragDropContext onDragEnd={handleIssueDrop}>
+        <Lists>
+          {Object.values(IssueStatus).map(status => (
+            <List
+              key={status}
+              status={status}
+              project={project}
+              filters={filters}
+              currentUserId={currentUserId}
+            />
+          ))}
+        </Lists>
+      </DragDropContext>
+    </Fragment>
   );
 };
 
