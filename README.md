@@ -1,6 +1,6 @@
 ## Fork Details
 
-This is a fork of an open source Jira clone. The unique features of this fork include:
+This project is forked from <a href="https://github.com/oldboyxx/jira_clone">oldboyxx's simplified Jira clone.</a>  The unique features of this fork include:
 
 - A "color" field - Issues now have an additional category of color. Users can select a color from a dropdown menu within the issue to further categorize the issue.
 - Editable lists (WIP) - The lists that correspond to issue status can be updated. Users can also add and delete lists.
