@@ -1,3 +1,10 @@
+## Fork Details
+
+This is a fork of an open source Jira clone. The unique features of this fork include:
+
+- A "color" field - Issues now have an additional category of color. Users can select a color from a dropdown menu within the issue to further categorize the issue.
+- Editable lists (WIP) - The lists that correspond to issue status can be updated. Users can also add and delete lists.
+
 <h1 align="center">A simplified Jira clone built with React and Node</h1>
 
 <div align="center">Auto formatted with Prettier, tested with Cypress 🎗</div>
